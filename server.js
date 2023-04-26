@@ -9,6 +9,7 @@ const port = args["port"] || 5000;
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.listen(port);
 
 app.get('/app/', (req, res) => {
 	res.status(200).send('200 OK');
@@ -62,6 +63,6 @@ app.get('/app/rpsls/play/:shot/', (req, res) => {
 
 //if endpoint not defined return 404
 
-app.all('*', (req, res) => {
+app.get('*', (req, res) => {
     res.status(404).send('404 NOT FOUND');
 })
