@@ -50,9 +50,8 @@ app.post('/app/rpsls/play/', (req, res) => {
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors)/ should return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
 
-
-app.get('/app/rps/play/:shot/', (req, res) => {
-    res.status(200).send(rps(req.params.shot));
+app.get('/app/rps/play/:shot', (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.params.shot)));
 })
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ should return {"player":"(rock|paper|scissors|lizard|spock)","opponent":"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}
